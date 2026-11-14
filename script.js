@@ -2,8 +2,8 @@ let lang = 'id';
 
 const dict = {
     id: {
-        title: "Hemat Berapa?",
-        subtitle: "Kalkulator Belanja Cermat",
+        title: "Kalkulator Perbandingan Harga dan Promo Belanja",
+        subtitle: "Bandingkan harga produk dengan ukuran kemasan berbeda, hitung harga per gram atau mililiter, dan cari tahu promo mana yang paling hemat. Gratis, mudah digunakan, dan tanpa perlu registrasi.",
         itemName: (n) => `Barang ${n}`,
         winBadge: "🏆 HEMAT",
         removeTitle: "Hapus barang",
@@ -40,8 +40,8 @@ const dict = {
         budgetWarn: (winName, winPay, lowName, lowPay) => `<strong>💡 Pertimbangan Anggaran:</strong> ${winName} paling hemat per isinya, tapi bayar kasir <strong>Rp ${winPay}</strong>. Jika anggaran terbatas, ${lowName} cukup bayar <strong>Rp ${lowPay}</strong>.`
     },
     en: {
-        title: "Best Value?",
-        subtitle: "Smart Shopping Calculator",
+        title: "Price & Grocery Promo Comparison Calculator",
+        subtitle: "Compare products across different package sizes, calculate price per gram or milliliter, and find the best shopping deal. Free, easy to use, and no sign-up required.",
         itemName: (n) => `Item ${n}`,
         winBadge: "🏆 BEST",
         removeTitle: "Remove item",
@@ -84,8 +84,9 @@ let items = [
     { id: 2, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: '' }
 ];
 
-function setLang(newLang) {
+window.setLang = function(newLang) {
     lang = newLang;
+    document.documentElement.lang = newLang;
     document.getElementById('btnId').classList.toggle('active', lang === 'id');
     document.getElementById('btnEn').classList.toggle('active', lang === 'en');
     document.getElementById('txtTitle').innerText = dict[lang].title;
@@ -94,7 +95,7 @@ function setLang(newLang) {
     updateAddButton();
     renderItems();
     calculate();
-}
+};
 
 function formatInt(num) {
     if (num === '' || num === null || num === undefined || isNaN(num)) return '';
@@ -253,6 +254,7 @@ window.removeItem = function(id) {
 
 function updateAddButton() {
     const btn = document.getElementById('btnAdd');
+    if (!btn) return;
     if (items.length >= 4) {
         btn.style.display = 'none';
     } else {
@@ -273,6 +275,7 @@ window.resetAll = function() {
 
 function renderItems() {
     const container = document.getElementById('itemsContainer');
+    if (!container) return;
     const l = dict[lang];
     const curr = lang === 'id' ? 'Rp' : '$';
     const firstQtyVal = parseFloat(items[0]?.qty) || 0;
@@ -296,7 +299,7 @@ function renderItems() {
                             <button type="button" class="mode-btn ${item.priceMode === 'unit' ? 'active' : ''}" onclick="setPriceMode(${item.id}, 'unit')">${l.modeUnit}</button>
                             <button type="button" class="mode-btn ${item.priceMode === 'total' ? 'active' : ''}" onclick="setPriceMode(${item.id}, 'total')">${l.modeTotal}</button>
                         </div>
-                        ${idx >= 2 ? `<button type="button" class="remove-btn" onclick="removeItem(${item.id})" title="${l.removeTitle}">✕</button>` : ''}
+                        ${idx >= 2 ? `<button type="button" class="remove-btn" onclick="removeItem(${item.id})" title="${l.removeTitle}" aria-label="${l.removeTitle}">✕</button>` : ''}
                     </div>
                 </div>
 
@@ -368,6 +371,7 @@ function renderItems() {
 
 function calculate() {
     const panel = document.getElementById('resultPanel');
+    if (!panel) return;
     const l = dict[lang];
 
     items.forEach(i => {
@@ -392,7 +396,7 @@ function calculate() {
     }).filter(Boolean);
 
     if (validItems.length < 2) {
-        panel.innerHTML = `<p class="empty-hint">${l.emptyHint}</p>`;
+        panel.innerHTML = `<p class="empty-hint" id="emptyHint">${l.emptyHint}</p>`;
         return;
     }
 

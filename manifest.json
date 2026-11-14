@@ -1,16 +1,31 @@
 {
-  "name": "Hemat Berapa Kalkulator",
+  "name": "Hemat Berapa? - Kalkulator Perbandingan Harga",
   "short_name": "Hemat Berapa",
-  "start_url": "./index.html",
+  "description": "Kalkulator perbandingan harga satuan, berat gram/ml, diskon, dan promo belanja supermarket.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#F5F7F5",
   "theme_color": "#1D5B79",
+  "lang": "id",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/1162/1162456.png",
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

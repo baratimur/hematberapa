@@ -2,59 +2,280 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1D5B79">
-    
-    <!-- SEO Meta Tags -->
-    <title>Hemat Berapa? - Kalkulator Belanja Pintar</title>
-    <meta name="description" content="Aplikasi kalkulator belanja pintar untuk membandingkan harga satuan, promo supermarket, dan harga grosir untuk menemukan pilihan paling hemat.">
-    <meta name="keywords" content="kalkulator belanja, hemat berapa, perbandingan harga, kalkulator supermarket, diskon, grosir, beli 2 gratis 1">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Kalkulator Perbandingan Harga &amp; Promo Belanja | Hemat Berapa?</title>
+    <meta name="description" content="Bandingkan harga produk beda ukuran kemasan, hitung harga per gram atau ml, dan cari promo belanja paling hemat dengan kalkulator gratis Hemat Berapa.">
     <meta name="author" content="Bara Timur">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://baratimur.github.io/hematberapa/">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://baratimur.github.io/hematberapa/">
-    <meta property="og:title" content="Hemat Berapa? - Kalkulator Belanja Pintar">
-    <meta property="og:description" content="Bandingkan harga satuan dan promo supermarket dengan mudah. Temukan pilihan belanja paling hemat!">
-    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/1162/1162456.png">
 
-    <!-- PWA & Assets -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hemat Berapa?">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:url" content="https://baratimur.github.io/hematberapa/">
+    <meta property="og:title" content="Kalkulator Perbandingan Harga &amp; Promo Belanja | Hemat Berapa?">
+    <meta property="og:description" content="Bandingkan harga produk beda ukuran kemasan, hitung harga per gram atau ml, dan cari promo belanja paling hemat dengan kalkulator gratis Hemat Berapa.">
+    <meta property="og:image" content="https://baratimur.github.io/hematberapa/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kalkulator Perbandingan Harga Hemat Berapa">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kalkulator Perbandingan Harga &amp; Promo Belanja | Hemat Berapa?">
+    <meta name="twitter:description" content="Bandingkan harga produk beda ukuran kemasan, hitung harga per gram atau ml, dan cari promo belanja paling hemat dengan kalkulator gratis Hemat Berapa.">
+    <meta name="twitter:image" content="https://baratimur.github.io/hematberapa/og-image.png">
+
+    <!-- Icons & PWA -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1162/1162456.png">
-    
-    <!-- External CSS -->
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://baratimur.github.io/hematberapa/#website",
+          "name": "Hemat Berapa?",
+          "url": "https://baratimur.github.io/hematberapa/",
+          "inLanguage": ["id-ID", "en"],
+          "publisher": {
+            "@type": "Person",
+            "name": "Bara Timur",
+            "url": "https://github.com/baratimur"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://baratimur.github.io/hematberapa/#webapp",
+          "name": "Hemat Berapa?",
+          "alternateName": "Kalkulator Perbandingan Harga dan Promo Belanja",
+          "url": "https://baratimur.github.io/hematberapa/",
+          "description": "Kalkulator belanja online gratis untuk membandingkan harga produk berdasarkan ukuran kemasan, harga satuan per gram atau mililiter, serta simulasi promo beli banyak dan bonus gratis.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "inLanguage": ["id-ID", "en"],
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "IDR"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Bara Timur",
+            "url": "https://github.com/baratimur"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
 <div class="container">
     <header class="header">
-        <div class="title">
-            <h1 id="txtTitle">Hemat Berapa?</h1>
-            <p id="txtSubtitle">Kalkulator Belanja Cermat</p>
+        <div class="top-bar">
+            <a href="./" class="brand-badge" aria-label="Hemat Berapa Beranda">🛒 Hemat Berapa?</a>
+            <div class="lang-pill" role="group" aria-label="Pilihan Bahasa">
+                <button type="button" class="lang-btn active" id="btnId" onclick="setLang('id')">🇮🇩 ID</button>
+                <button type="button" class="lang-btn" id="btnEn" onclick="setLang('en')">🇬🇧 EN</button>
+            </div>
         </div>
-        <div class="lang-pill">
-            <button class="lang-btn active" id="btnId" onclick="setLang('id')">🇮🇩 ID</button>
-            <button class="lang-btn" id="btnEn" onclick="setLang('en')">🇬🇧 EN</button>
+
+        <div class="hero-copy">
+            <h1 id="txtTitle">Kalkulator Perbandingan Harga dan Promo Belanja</h1>
+            <p id="txtSubtitle">Bandingkan harga produk dengan ukuran kemasan berbeda, hitung harga per gram atau mililiter, dan cari tahu promo mana yang paling hemat. Gratis, mudah digunakan, dan tanpa perlu registrasi.</p>
         </div>
+
+        <nav class="quick-nav" aria-label="Navigasi Halaman">
+            <a href="#kalkulator">Kalkulator</a>
+            <a href="#cara-menentukan">Cara Hitung</a>
+            <a href="#cara-menggunakan">Cara Pakai</a>
+            <a href="#contoh">Contoh</a>
+            <a href="#faq">FAQ</a>
+        </nav>
     </header>
 
-    <div class="items-list" id="itemsContainer"></div>
+    <main>
+        <!-- Kalkulator Utama -->
+        <section id="kalkulator" class="calculator-section" aria-label="Kalkulator Perbandingan Harga Satuan">
+            <div class="items-list" id="itemsContainer">
+                <noscript>
+                    <div class="noscript-box">
+                        <p><strong>JavaScript diperlukan untuk menjalankan kalkulator interaktif.</strong></p>
+                        <p>Anda tetap dapat membaca panduan menghitung harga per gram, perbandingan kemasan besar vs kecil, serta contoh simulasi promo belanja di bawah ini.</p>
+                    </div>
+                </noscript>
+            </div>
 
-    <div class="actions-row">
-        <button class="add-btn" id="btnAdd" onclick="addItem()">➕ Barang Ke-3</button>
-        <button class="reset-btn" id="btnReset" onclick="resetAll()">🔄 Reset</button>
-    </div>
+            <div class="actions-row">
+                <button type="button" class="add-btn" id="btnAdd" onclick="addItem()">➕ Barang Ke-3</button>
+                <button type="button" class="reset-btn" id="btnReset" onclick="resetAll()">🔄 Reset</button>
+            </div>
 
-    <div class="result-panel" id="resultPanel">
-        <p class="empty-hint" id="emptyHint"></p>
-    </div>
+            <div class="result-panel" id="resultPanel" aria-live="polite">
+                <p class="empty-hint" id="emptyHint">Isi harga &amp; ukuran minimal 2 barang untuk membandingkan otomatis.</p>
+            </div>
+        </section>
+
+        <!-- Penjelasan Fungsi Kalkulator -->
+        <section id="cara-menentukan" class="content-section">
+            <h2>Bagaimana Cara Menentukan Produk yang Lebih Hemat?</h2>
+            <p>Label harga di rak supermarket maupun toko grosir sering membuat pembeli sulit membandingkan nilai produk secara langsung. Ukuran kemasan yang berbeda dan berbagai skema promo membuat harga termurah di label belum tentu menjadi pilihan paling ekonomis. Dengan <strong>kalkulator perbandingan harga</strong>, semua produk disetarakan ke dalam satu ukuran pembanding yang objektif: <strong>harga per satuan</strong>.</p>
+
+            <div class="info-grid">
+                <article class="info-card">
+                    <h3>1. Perbandingan Harga Berdasarkan Berat (Gram &amp; Kilogram)</h3>
+                    <p>Cocok untuk bahan pokok seperti beras, gula, kopi bubuk, tepung, atau camilan. Cukup masukkan berat dalam satuan yang sama (misalnya sama-sama gram). Jika produk pertama 250 gram dan produk kedua 1 kg, ubah 1 kg menjadi 1.000 gram agar kalkulator menghitung <strong>harga per gram</strong> secara akurat.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>2. Perbandingan Harga Berdasarkan Volume (Mililiter &amp; Liter)</h3>
+                    <p>Digunakan untuk produk cair seperti susu UHT, minyak goreng, sabun cair, sampo, dan minuman kemasan. Masukkan volume dalam mililiter (ml) atau liter (1 liter = 1.000 ml) untuk mengetahui <strong>harga per ml</strong> paling murah di antara beberapa ukuran botol atau <em>pouch</em>.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>3. Perbandingan Harga Berdasarkan Jumlah Unit (Pcs / Lembar)</h3>
+                    <p>Untuk produk seperti tisu wajah, popok bayi, mie instan isi banyak, atau kapsul kopi, masukkan jumlah isi (lembar, pcs, atau bungkus) pada kolom ukuran. Kalkulator akan membagi total harga dengan total unit sehingga terlihat biaya per lembar atau per bungkus.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>4. Perbandingan Kemasan Kecil dan Kemasan Besar</h3>
+                    <p>Kemasan besar sering dianggap otomatis lebih murah, padahal promo khusus pada ukuran sedang atau paket <em>refill</em> terkadang menghasilkan harga per gram lebih rendah. Membandingkan keduanya mencegah Anda membayar lebih mahal untuk ukuran besar.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>5. Perhitungan Diskon Belanja</h3>
+                    <p>Jika sebuah produk mendapat potongan persen (misalnya diskon 20%), kalikan harga awal dengan persentase yang dibayar (80%), lalu masukkan harga setelah diskon ke kalkulator untuk membandingkannya dengan merek pesaing yang tidak sedang diskon.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>6. Perhitungan Promo Pembelian Beberapa Produk</h3>
+                    <p>Untuk promo grosir seperti <em>Beli 3 lebih murah</em> atau promo bonus seperti <em>Beli 2 Gratis 1</em>, gunakan fitur <strong>Tambah Promo / Beli Banyak</strong>. Kalkulator akan menggabungkan total yang dibayar dan total isi yang diterima menjadi harga satuan efektif.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Panduan Cara Menggunakan -->
+        <section id="cara-menggunakan" class="content-section">
+            <h2>Cara Menggunakan Kalkulator Hemat Berapa</h2>
+            <p>Ikuti langkah-langkah berikut saat berdiri di depan rak toko atau membandingkan harga di marketplace:</p>
+            <ol class="steps-list">
+                <li><strong>Pilih barang pembanding:</strong> Secara bawaan tersedia <strong>Barang 1</strong> dan <strong>Barang 2</strong>. Tekan tombol <strong>➕ Barang Ke-3</strong> (hingga maksimal 4 barang) jika ingin membandingkan lebih banyak varian sekaligus.</li>
+                <li><strong>Pilih mode harga dan masukkan nominal Harga:</strong> Gunakan sakelar <strong>Satuan</strong> jika harga yang tertera berlaku untuk 1 kemasan, atau pilih <strong>Total</strong> jika harga tersebut merupakan harga gabungan satu paket.</li>
+                <li><strong>Masukkan berat, volume, atau jumlah isi:</strong> Isi kolom <strong>Isi (ml/gr)</strong> dengan angka yang sama satuannya (misalnya semuanya dalam gram atau semuanya dalam ml). Jika ukuran kemasannya sama dengan Barang 1, tekan tombol pintas <strong>📋 = Brg 1</strong>.</li>
+                <li><strong>Atur promo atau pembelian grosir (opsional):</strong> Jika produk memiliki syarat beli banyak atau bonus gratis, tekan <strong>🏷️ Tambah Promo / Beli Banyak</strong>, lalu pilih preset cepat (<em>Beli 1 Gratis 1</em>, <em>Beli 2 Gratis 1</em>, <em>Beli 3</em>, <em>Beli 12</em>) atau ketik angka manual pada kolom <strong>Beli (Pcs)</strong> dan <strong>Gratis (Pcs)</strong>.</li>
+                <li><strong>Lihat harga per satuan secara otomatis:</strong> Begitu minimal dua produk terisi lengkap, kartu produk termurah akan ditandai hijau dengan lencana <strong>🏆 HEMAT</strong> dan ringkasan harga per satuan muncul di panel hasil.</li>
+                <li><strong>Bandingkan hasil dan pertimbangan anggaran:</strong> Periksa nominal penghematan, persentase selisih, serta catatan <strong>Pertimbangan Anggaran</strong> untuk memastikan total uang yang dibayar di kasir sesuai dengan rencana belanja Anda.</li>
+            </ol>
+        </section>
+
+        <!-- Contoh Perhitungan Nyata -->
+        <section id="contoh" class="content-section">
+            <h2>Contoh Penggunaan &amp; Simulasi Perhitungan</h2>
+            <p>Berikut tiga skenario belanja sehari-hari beserta cara menghitung perbandingannya secara matematis:</p>
+
+            <article class="example-card">
+                <h3>Contoh 1: Kemasan Kecil vs Kemasan Besar (Berat Gram)</h3>
+                <ul>
+                    <li><strong>Produk A (Kemasan Kecil):</strong> Rp15.000 untuk isi 250 gram &rarr; <code>Rp15.000 &divide; 250 = Rp60 per gram</code>.</li>
+                    <li><strong>Produk B (Kemasan Besar):</strong> Rp25.000 untuk isi 500 gram &rarr; <code>Rp25.000 &divide; 500 = Rp50 per gram</code>.</li>
+                </ul>
+                <p class="example-verdict"><strong>Hasil:</strong> <strong>Produk B lebih ekonomis</strong>. Untuk mendapatkan 500 gram dengan membeli 2 bungkus Produk A, Anda harus membayar Rp30.000. Membeli Produk B menghemat <strong>Rp5.000 (17%)</strong>.</p>
+            </article>
+
+            <article class="example-card">
+                <h3>Contoh 2: Produk Diskon 20% vs Produk Harga Normal</h3>
+                <ul>
+                    <li><strong>Produk A (Diskon 20%):</strong> Harga awal Rp40.000 untuk 400 ml. Potongan diskon sebesar <code>20% &times; Rp40.000 = Rp8.000</code>, sehingga harga bayar menjadi <strong>Rp32.000</strong> (<code>Rp32.000 &divide; 400 = Rp80 per ml</code>).</li>
+                    <li><strong>Produk B (Tanpa Diskon):</strong> Harga normal <strong>Rp35.000</strong> untuk isi sama 400 ml (<code>Rp35.000 &divide; 400 = Rp87,50 per ml</code>).</li>
+                </ul>
+                <p class="example-verdict"><strong>Hasil:</strong> Masukkan Rp32.000 pada Barang 1 dan Rp35.000 pada Barang 2. <strong>Produk A lebih hemat Rp3.000 (9%)</strong> dibanding Produk B.</p>
+            </article>
+
+            <article class="example-card">
+                <h3>Contoh 3: Promo Beli 2 Gratis 1 vs Diskon Langsung 25%</h3>
+                <p>Misalkan harga satuan susu UHT 250 ml adalah Rp12.000 per kotak:</p>
+                <ul>
+                    <li><strong>Promo Beli 2 Gratis 1:</strong> Anda membayar 2 kotak (<code>2 &times; Rp12.000 = Rp24.000</code>) dan membawa pulang 3 kotak (750 ml). Harga efektif menjadi <strong>Rp8.000 per kotak</strong> atau <strong>Rp32 per ml</strong> (setara diskon efektif <strong>33,33%</strong>).</li>
+                    <li><strong>Diskon Langsung 25%:</strong> Harga per kotak menjadi <code>Rp12.000 &minus; 25% = Rp9.000</code> atau <strong>Rp36 per ml</strong> (total Rp27.000 untuk 3 kotak).</li>
+                </ul>
+                <p class="example-verdict"><strong>Hasil:</strong> <strong>Promo Beli 2 Gratis 1 lebih murah Rp4 per ml</strong> (hemat Rp3.000 untuk setiap 3 kotak), selama seluruh isi dapat habis digunakan sebelum kedaluwarsa.</p>
+            </article>
+        </section>
+
+        <!-- FAQ HTML Static -->
+        <section id="faq" class="content-section">
+            <h2>Pertanyaan yang Sering Diajukan (FAQ)</h2>
+
+            <details class="faq-item" open>
+                <summary>Apa itu harga per satuan?</summary>
+                <div class="faq-answer">
+                    <p>Harga per satuan (<em>unit price</em>) adalah biaya yang Anda bayarkan untuk setiap satu unit ukuran standar produk, misalnya rupiah per 1 gram, per 1 mililiter, atau per 1 lembar. Angka ini diperoleh dengan membagi total harga produk dengan total berat, volume, atau jumlah isinya.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Bagaimana cara menghitung harga per gram atau per mililiter?</summary>
+                <div class="faq-answer">
+                    <p>Gunakan rumus sederhana: <strong>Harga Produk &divide; Berat atau Volume Kemasan</strong>. Contohnya, minyak goreng Rp36.000 untuk kemasan 2.000 ml (2 liter) memiliki harga satuan <code>Rp36.000 &divide; 2.000 = Rp18 per ml</code> atau Rp18.000 per liter. Pastikan seluruh produk yang dibandingkan sudah memakai satuan yang sama (gram dengan gram, ml dengan ml).</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Apakah kemasan besar selalu lebih murah daripada kemasan kecil?</summary>
+                <div class="faq-answer">
+                    <p>Tidak selalu. Meskipun kemasan besar umumnya memiliki harga per satuan lebih rendah, supermarket sering memberikan potongan harga khusus pada kemasan sedang, kemasan isi ulang (<em>refill</em>), atau paket <em>sachet</em> tertentu sehingga harga per gramnya bisa lebih murah daripada botol atau kemasan terbesar.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Bagaimana cara menghitung diskon belanja di kalkulator ini?</summary>
+                <div class="faq-answer">
+                    <p>Untuk diskon persentase, hitung dulu harga setelah diskon dengan rumus <code>Harga Awal &times; (100% &minus; Persen Diskon)</code>. Misalnya barang Rp50.000 diskon 30% menjadi Rp35.000, lalu masukkan angka Rp35.000 tersebut ke dalam kalkulator untuk dibandingkan dengan produk lain.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Bagaimana cara membandingkan promo beli 2 gratis 1?</summary>
+                <div class="faq-answer">
+                    <p>Masukkan harga 1 kemasan dengan mode <strong>Satuan</strong> dan isi per kemasannya, lalu tekan <strong>Tambah Promo / Beli Banyak</strong> dan pilih tombol <strong>Beli 2 Gratis 1</strong>. Kalkulator otomatis menghitung total bayar untuk 2 kemasan yang dibagi ke dalam 3 kemasan yang Anda terima (setara diskon efektif 33,33%).</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Apakah kalkulator Hemat Berapa ini gratis digunakan?</summary>
+                <div class="faq-answer">
+                    <p>Ya, Hemat Berapa 100% gratis digunakan tanpa biaya langganan, tanpa iklan mengganggu, dan tanpa perlu membuat akun maupun login. Aplikasi ini juga dapat dipasang ke layar utama ponsel sebagai Progressive Web App (PWA) dan tetap berjalan saat offline.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Apakah data harga yang saya masukkan disimpan?</summary>
+                <div class="faq-answer">
+                    <p>Tidak. Seluruh angka harga dan ukuran kemasan yang Anda ketik hanya diproses sementara di memori browser pada perangkat Anda sendiri. Aplikasi ini tidak memiliki server backend, tidak menggunakan database, dan tidak menyimpan maupun mengirimkan riwayat belanja Anda ke pihak mana pun. Data langsung terhapus saat halaman dimuat ulang atau tombol Reset ditekan.</p>
+                </div>
+            </details>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="app-footer">
-        <p>Dibuat untuk kemudahan belanja 🛒 • Open source di <a href="https://github.com/baratimur/hematberapa" target="_blank" rel="noopener">GitHub</a></p>
+        <p><strong>Hemat Berapa?</strong> — Kalkulator Perbandingan Harga &amp; Promo Belanja</p>
+        <p>Gratis &amp; Open Source di <a href="https://github.com/baratimur/hematberapa" target="_blank" rel="noopener">GitHub (baratimur/hematberapa)</a></p>
     </footer>
 </div>
 

@@ -2,65 +2,261 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hemat Berapa - Kalkulator Harga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hemat Berapa? / Value Calculator</title>
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; padding: 20px; max-width: 400px; margin: auto; background-color: #f4f4f9; }
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #333; margin-top: 0; }
-        label { font-size: 14px; font-weight: bold; color: #555; }
-        input { width: 100%; padding: 10px; margin: 8px 0 16px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
-        button:hover { background: #0056b3; }
-        .result { margin-top: 20px; padding: 15px; border-radius: 8px; background: #e9ecef; display: none; text-align: center; }
-        .winner { color: #28a745; font-size: 18px; font-weight: bold; margin-top: 10px; display: block; }
+        :root {
+            --primary: #0d6efd;
+            --success: #198754;
+            --bg: #f8f9fa;
+            --text: #212529;
+            --card-bg: #ffffff;
+            --border: #ced4da;
+        }
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text);
+            padding: 15px; 
+            margin: 0; 
+            display: flex;
+            justify-content: center;
+        }
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 24px;
+            box-sizing: border-box;
+        }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        h1 { font-size: 26px; margin: 0; font-weight: 800; letter-spacing: -0.5px; }
+        .lang-toggle {
+            padding: 10px 16px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+        }
+        .input-group {
+            background: var(--bg);
+            padding: 18px;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .input-group.highlight {
+            border-color: var(--success);
+            background: #eafbf0;
+        }
+        label { 
+            display: block; 
+            font-size: 20px; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+        }
+        input { 
+            width: 100%; 
+            padding: 14px; 
+            font-size: 22px; 
+            margin-bottom: 14px; 
+            border: 2px solid var(--border); 
+            border-radius: 10px; 
+            box-sizing: border-box; 
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        input[type="number"] { -moz-appearance: textfield; }
+        button.calc-btn { 
+            width: 100%; 
+            padding: 18px; 
+            font-size: 24px; 
+            font-weight: 800; 
+            background-color: var(--primary); 
+            color: white; 
+            border: none; 
+            border-radius: 14px; 
+            cursor: pointer; 
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+        }
+        button.calc-btn:active { transform: translateY(2px); }
+        .result-box {
+            margin-top: 24px;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            display: none;
+            font-size: 20px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .winner-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--success);
+            margin-bottom: 12px;
+        }
+        .savings-text {
+            font-size: 24px;
+            font-weight: 800;
+            background: #ffeb3b;
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>Hemat Berapa?</h2>
-        
-        <label>Barang A</label>
-        <input type="number" id="priceA" placeholder="Harga (Misal: 5000)">
-        <input type="number" id="qtyA" placeholder="Isi / Berat (Misal: 200)">
-        
-        <label>Barang B</label>
-        <input type="number" id="priceB" placeholder="Harga (Misal: 6000)">
-        <input type="number" id="qtyB" placeholder="Isi / Berat (Misal: 250)">
-        
-        <button onclick="calculate()">Bandingkan</button>
-        
-        <div id="output" class="result"></div>
+
+<div class="app-container">
+    <div class="header-bar">
+        <h1 id="appTitle">Hemat Berapa?</h1>
+        <select class="lang-toggle" id="langSwitch" onchange="updateUI()">
+            <option value="id">🇮🇩 ID</option>
+            <option value="en">🇬🇧 EN</option>
+        </select>
     </div>
 
-    <script>
-        function calculate() {
-            const priceA = parseFloat(document.getElementById('priceA').value);
-            const qtyA = parseFloat(document.getElementById('qtyA').value);
-            const priceB = parseFloat(document.getElementById('priceB').value);
-            const qtyB = parseFloat(document.getElementById('qtyB').value);
+    <div class="input-group" id="cardA">
+        <label id="lblA">Barang 1 (A)</label>
+        <input type="number" id="priceA" inputmode="numeric" placeholder="Harga (Misal: 5000)">
+        <input type="number" id="qtyA" inputmode="numeric" placeholder="Isi / Berat (Misal: 200)">
+    </div>
 
-            if (!priceA || !qtyA || !priceB || !qtyB) {
-                alert('Harap isi semua kolom harga dan isi/berat!');
-                return;
-            }
+    <div class="input-group" id="cardB">
+        <label id="lblB">Barang 2 (B)</label>
+        <input type="number" id="priceB" inputmode="numeric" placeholder="Harga (Misal: 6000)">
+        <input type="number" id="qtyB" inputmode="numeric" placeholder="Isi / Berat (Misal: 250)">
+    </div>
 
-            const unitPriceA = priceA / qtyA;
-            const unitPriceB = priceB / qtyB;
+    <button class="calc-btn" id="btnCalc" onclick="calculate()">Bandingkan</button>
 
-            let outputText = `Barang A: Rp ${unitPriceA.toFixed(2)} / satuan<br>Barang B: Rp ${unitPriceB.toFixed(2)} / satuan<br>`;
+    <div id="result" class="result-box"></div>
+</div>
 
-            if (unitPriceA < unitPriceB) {
-                outputText += `<span class="winner">Beli Barang A! Lebih Murah.</span>`;
-            } else if (unitPriceB < unitPriceA) {
-                outputText += `<span class="winner">Beli Barang B! Lebih Murah.</span>`;
-            } else {
-                outputText += `<span class="winner" style="color:#17a2b8;">Keduanya sama murahnya!</span>`;
-            }
-
-            document.getElementById('output').innerHTML = outputText;
-            document.getElementById('output').style.display = 'block';
+<script>
+    const texts = {
+        id: {
+            title: "Hemat Berapa?",
+            itemA: "Barang 1 (A)",
+            itemB: "Barang 2 (B)",
+            pricePlaceholder: "Harga (Rp)",
+            qtyPlaceholder: "Isi / Berat (ml, gr)",
+            btn: "Bandingkan!",
+            error: "Mohon isi semua angka terlebih dahulu!",
+            winner: "Lebih Worth It!",
+            same: "Sama-sama murah! Tidak ada bedanya.",
+            saveText: "Anda hemat"
+        },
+        en: {
+            title: "Value Calculator",
+            itemA: "Item 1 (A)",
+            itemB: "Item 2 (B)",
+            pricePlaceholder: "Price ($/Rp)",
+            qtyPlaceholder: "Size / Weight (ml, oz)",
+            btn: "Compare!",
+            error: "Please enter all numbers first!",
+            winner: "Best Value!",
+            same: "Both are exactly the same value!",
+            saveText: "You save"
         }
-    </script>
+    };
+
+    let currentLang = "id";
+
+    function updateUI() {
+        currentLang = document.getElementById('langSwitch').value;
+        const t = texts[currentLang];
+        
+        document.getElementById('appTitle').innerText = t.title;
+        document.getElementById('lblA').innerText = t.itemA;
+        document.getElementById('lblB').innerText = t.itemB;
+        document.getElementById('btnCalc').innerText = t.btn;
+        
+        document.getElementById('priceA').placeholder = t.pricePlaceholder;
+        document.getElementById('priceB').placeholder = t.pricePlaceholder;
+        document.getElementById('qtyA').placeholder = t.qtyPlaceholder;
+        document.getElementById('qtyB').placeholder = t.qtyPlaceholder;
+
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('cardA').classList.remove('highlight');
+        document.getElementById('cardB').classList.remove('highlight');
+    }
+
+    function formatCurrency(num) {
+        return num.toLocaleString('id-ID'); 
+    }
+
+    function calculate() {
+        const t = texts[currentLang];
+        const priceA = parseFloat(document.getElementById('priceA').value);
+        const qtyA = parseFloat(document.getElementById('qtyA').value);
+        const priceB = parseFloat(document.getElementById('priceB').value);
+        const qtyB = parseFloat(document.getElementById('qtyB').value);
+
+        if (!priceA || !qtyA || !priceB || !qtyB) {
+            alert(t.error);
+            return;
+        }
+
+        const unitPriceA = priceA / qtyA;
+        const unitPriceB = priceB / qtyB;
+
+        const resDiv = document.getElementById('result');
+        const cardA = document.getElementById('cardA');
+        const cardB = document.getElementById('cardB');
+
+        cardA.classList.remove('highlight');
+        cardB.classList.remove('highlight');
+
+        if (unitPriceA < unitPriceB) {
+            cardA.classList.add('highlight');
+            let expectedPriceIfB = qtyA * unitPriceB;
+            let savings = expectedPriceIfB - priceA;
+            
+            resDiv.innerHTML = `
+                <div class="winner-title">🏆 ${t.itemA} ${t.winner}</div>
+                <div class="savings-text">${t.saveText} ${formatCurrency(Math.round(savings))}</div>
+            `;
+            resDiv.style.backgroundColor = "#eafbf0";
+            resDiv.style.border = "3px solid #198754";
+            
+        } else if (unitPriceB < unitPriceA) {
+            cardB.classList.add('highlight');
+            let expectedPriceIfA = qtyB * unitPriceA;
+            let savings = expectedPriceIfA - priceB;
+
+            resDiv.innerHTML = `
+                <div class="winner-title">🏆 ${t.itemB} ${t.winner}</div>
+                <div class="savings-text">${t.saveText} ${formatCurrency(Math.round(savings))}</div>
+            `;
+            resDiv.style.backgroundColor = "#eafbf0";
+            resDiv.style.border = "3px solid #198754";
+
+        } else {
+            resDiv.innerHTML = `<div class="winner-title" style="color:var(--text);">⚖️ ${t.same}</div>`;
+            resDiv.style.backgroundColor = "#e9ecef";
+            resDiv.style.border = "3px solid #ccc";
+        }
+        
+        resDiv.style.display = 'block';
+    }
+</script>
 </body>
 </html>

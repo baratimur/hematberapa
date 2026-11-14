@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemat Berapa - Kalkulator Harga</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 20px; max-width: 400px; margin: auto; background-color: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; margin-top: 0; }
+        label { font-size: 14px; font-weight: bold; color: #555; }
+        input { width: 100%; padding: 10px; margin: 8px 0 16px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 8px; background: #e9ecef; display: none; text-align: center; }
+        .winner { color: #28a745; font-size: 18px; font-weight: bold; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Hemat Berapa?</h2>
+        
+        <label>Barang A</label>
+        <input type="number" id="priceA" placeholder="Harga (Misal: 5000)">
+        <input type="number" id="qtyA" placeholder="Isi / Berat (Misal: 200)">
+        
+        <label>Barang B</label>
+        <input type="number" id="priceB" placeholder="Harga (Misal: 6000)">
+        <input type="number" id="qtyB" placeholder="Isi / Berat (Misal: 250)">
+        
+        <button onclick="calculate()">Bandingkan</button>
+        
+        <div id="output" class="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const priceA = parseFloat(document.getElementById('priceA').value);
+            const qtyA = parseFloat(document.getElementById('qtyA').value);
+            const priceB = parseFloat(document.getElementById('priceB').value);
+            const qtyB = parseFloat(document.getElementById('qtyB').value);
+
+            if (!priceA || !qtyA || !priceB || !qtyB) {
+                alert('Harap isi semua kolom harga dan isi/berat!');
+                return;
+            }
+
+            const unitPriceA = priceA / qtyA;
+            const unitPriceB = priceB / qtyB;
+
+            let outputText = `Barang A: Rp ${unitPriceA.toFixed(2)} / satuan<br>Barang B: Rp ${unitPriceB.toFixed(2)} / satuan<br>`;
+
+            if (unitPriceA < unitPriceB) {
+                outputText += `<span class="winner">Beli Barang A! Lebih Murah.</span>`;
+            } else if (unitPriceB < unitPriceA) {
+                outputText += `<span class="winner">Beli Barang B! Lebih Murah.</span>`;
+            } else {
+                outputText += `<span class="winner" style="color:#17a2b8;">Keduanya sama murahnya!</span>`;
+            }
+
+            document.getElementById('output').innerHTML = outputText;
+            document.getElementById('output').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -2,13 +2,12 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="JMJrPVal48m0GN5wmHry-XML6EW1ugQJ0SCLQikIt-I" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#1D5B79">
     
     <!-- SEO Meta Tags -->
     <title>Hemat Berapa? - Kalkulator Belanja Pintar</title>
-    <meta name="description" content="Aplikasi kalkulator belanja pintar untuk emak-emak. Bandingkan harga satuan, promo supermarket, dan harga grosir untuk menemukan pilihan paling hemat.">
+    <meta name="description" content="Aplikasi kalkulator belanja pintar untuk membandingkan harga satuan, promo supermarket, dan harga grosir untuk menemukan pilihan paling hemat.">
     <meta name="keywords" content="kalkulator belanja, hemat berapa, perbandingan harga, kalkulator supermarket, diskon, grosir, beli 2 gratis 1">
     <meta name="author" content="Bara Timur">
     <meta name="robots" content="index, follow">
@@ -31,7 +30,7 @@
 <body>
 
 <div class="container">
-    <div class="header">
+    <header class="header">
         <div class="title">
             <h1 id="txtTitle">Hemat Berapa?</h1>
             <p id="txtSubtitle">Kalkulator Belanja Cermat</p>
@@ -40,28 +39,25 @@
             <button class="lang-btn active" id="btnId" onclick="setLang('id')">🇮🇩 ID</button>
             <button class="lang-btn" id="btnEn" onclick="setLang('en')">🇬🇧 EN</button>
         </div>
-    </div>
+    </header>
 
     <div class="items-list" id="itemsContainer"></div>
 
     <div class="actions-row">
-        <button class="add-btn" id="btnAdd" onclick="addItem()">➕ Bandingkan Barang Ke-3</button>
+        <button class="add-btn" id="btnAdd" onclick="addItem()">➕ Barang Ke-3</button>
+        <button class="reset-btn" id="btnReset" onclick="resetAll()">🔄 Reset</button>
     </div>
 
     <div class="result-panel" id="resultPanel">
         <p class="empty-hint" id="emptyHint"></p>
     </div>
 
-    <button class="reset-btn" id="btnReset" onclick="resetAll()">🔄 Hapus Semua & Hitung Ulang</button>
-
     <!-- Footer -->
     <footer class="app-footer">
-        <p>Dibuat untuk kemudahan belanja 🛒</p>
-        <p>Open source project di <a href="https://github.com/baratimur/hematberapa" target="_blank" rel="noopener">GitHub</a></p>
+        <p>Dibuat untuk kemudahan belanja 🛒 • Open source di <a href="https://github.com/baratimur/hematberapa" target="_blank" rel="noopener">GitHub</a></p>
     </footer>
 </div>
 
-<!-- External Script -->
 <script src="script.js" defer></script>
 </body>
 </html>

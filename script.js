@@ -5,85 +5,83 @@ const dict = {
         title: "Hemat Berapa?",
         subtitle: "Kalkulator Belanja Cermat",
         itemName: (n) => `Barang ${n}`,
-        winBadge: "🏆 PALING HEMAT",
+        winBadge: "🏆 HEMAT",
         removeTitle: "Hapus barang",
         priceLabel: "Harga",
         modeUnit: "Satuan",
         modeTotal: "Total",
-        pricePhUnit: "Misal: 10.000",
-        pricePhTotal: "Misal: 25.000",
-        qtyLabel: "Isi / Berat per pcs",
-        qtyPh: "Misal: 200",
-        copySize: "📋 Pakai isi Barang 1",
+        pricePhUnit: "10.000",
+        pricePhTotal: "25.000",
+        qtyLabel: "Isi (ml/gr)",
+        qtyPh: "200",
+        copySize: "📋 = Brg 1",
         addPromo: "🏷️ Tambah Promo / Beli Banyak",
         promoHeader: "Atur Promo / Grosir",
-        closePromo: "✕ Tutup Promo",
+        closePromo: "✕ Tutup",
         presetLabel: "Pilih cepat:",
         presets: {
             b1g1: "Beli 1 Gratis 1",
             b2g1: "Beli 2 Gratis 1",
-            b3: "Beli 3 (Total)",
-            b12: "Beli 12 (Total)",
-            b24: "Beli 24 (Total)"
+            b3: "Beli 3",
+            b12: "Beli 12"
         },
         buyLabel: "Beli (Pcs)",
         freeLabel: "Gratis (Pcs)",
-        receiptEmpty: (b, f, tot) => `🧾 Skema: Beli <strong>${b}</strong>${f > 0 ? ` + Gratis <strong>${f}</strong>` : ''} = dapat <strong>${tot} pcs</strong>. Masukkan harga di atas.`,
-        receiptFull: (pay, tot, perPack) => `🧾 Bayar <strong>Rp ${pay}</strong> dapat <strong>${tot} pcs</strong> (@ Rp ${perPack} / pcs)`,
-        addBtn: (n) => `➕ Bandingkan Barang Ke-${n}`,
-        resetBtn: "🔄 Hapus Semua & Hitung Ulang",
-        emptyHint: "Isi harga dan ukuran minimal 2 barang di atas untuk melihat perbandingan otomatis.",
-        winHeadline: (name) => `🏆 Pilihan Paling Hemat: ${name}`,
+        receiptEmpty: (b, f, tot) => `🧾 Beli <strong>${b}</strong>${f > 0 ? ` + Gratis <strong>${f}</strong>` : ''} = <strong>${tot} pcs</strong>. Isi harga di atas.`,
+        receiptFull: (pay, tot, perPack) => `🧾 Bayar <strong>Rp ${pay}</strong> dapat <strong>${tot} pcs</strong> (@ Rp ${perPack}/pcs)`,
+        addBtn: (n) => `➕ Barang Ke-${n}`,
+        resetBtn: "🔄 Reset",
+        emptyHint: "Isi harga & ukuran minimal 2 barang untuk membandingkan otomatis.",
+        winHeadline: (name) => `🏆 Paling Hemat: ${name}`,
         tieHeadline: "⚖️ Keduanya Sama Murahnya",
         tieDetail: (unit) => `Harga per satuannya sama persis yaitu <strong>Rp ${unit}</strong>.`,
         saveBadge: (amt, pct) => `Hemat Rp ${amt} (${pct}%)`,
-        saveDetail: (winner, runner, unitWin, unitLose) => `<strong>${winner}</strong> lebih hemat dibanding <strong>${runner}</strong> untuk ukuran isi yang setara.<br>(Rp ${unitWin}/satuan vs Rp ${unitLose}/satuan)`,
-        budgetWarn: (winName, winPay, lowName, lowPay) => `<strong>💡 Pertimbangan Anggaran:</strong><br>${winName} memang paling hemat per isinya, tapi total bayar di kasir <strong>Rp ${winPay}</strong>. Jika anggaran sedang terbatas, ${lowName} hanya perlu bayar <strong>Rp ${lowPay}</strong>.`
+        saveDetail: (winner, runner, unitWin, unitLose) => `<strong>${winner}</strong> lebih hemat dibanding <strong>${runner}</strong> untuk isi yang setara.<br>(Rp ${unitWin}/satuan vs Rp ${unitLose}/satuan)`,
+        budgetWarn: (winName, winPay, lowName, lowPay) => `<strong>💡 Pertimbangan Anggaran:</strong> ${winName} paling hemat per isinya, tapi bayar kasir <strong>Rp ${winPay}</strong>. Jika anggaran terbatas, ${lowName} cukup bayar <strong>Rp ${lowPay}</strong>.`
     },
     en: {
         title: "Best Value?",
         subtitle: "Smart Shopping Calculator",
         itemName: (n) => `Item ${n}`,
-        winBadge: "🏆 BEST VALUE",
+        winBadge: "🏆 BEST",
         removeTitle: "Remove item",
         priceLabel: "Price",
-        modeUnit: "Per Item",
-        modeTotal: "Bundle Total",
-        pricePhUnit: "e.g. 10,000",
-        pricePhTotal: "e.g. 25,000",
-        qtyLabel: "Size / Weight per pcs",
-        qtyPh: "e.g. 200",
-        copySize: "📋 Use Item 1 size",
+        modeUnit: "Unit",
+        modeTotal: "Total",
+        pricePhUnit: "10,000",
+        pricePhTotal: "25,000",
+        qtyLabel: "Size (ml/gr)",
+        qtyPh: "200",
+        copySize: "📋 = Item 1",
         addPromo: "🏷️ Add Promo / Multi-Buy",
         promoHeader: "Promo / Bulk Settings",
-        closePromo: "✕ Remove Promo",
+        closePromo: "✕ Close",
         presetLabel: "Quick presets:",
         presets: {
-            b1g1: "Buy 1 Get 1 Free",
-            b2g1: "Buy 2 Get 1 Free",
-            b3: "Buy 3 (Total)",
-            b12: "Buy 12 (Total)",
-            b24: "Buy 24 (Total)"
+            b1g1: "Buy 1 Get 1",
+            b2g1: "Buy 2 Get 1",
+            b3: "Buy 3",
+            b12: "Buy 12"
         },
         buyLabel: "Buy (Pcs)",
         freeLabel: "Free (Pcs)",
-        receiptEmpty: (b, f, tot) => `🧾 Deal: Buy <strong>${b}</strong>${f > 0 ? ` + <strong>${f}</strong> Free` : ''} = <strong>${tot} pcs</strong> total. Enter price above.`,
-        receiptFull: (pay, tot, perPack) => `🧾 Pay <strong>$${pay}</strong> for <strong>${tot} pcs</strong> (@ $${perPack} / pcs)`,
-        addBtn: (n) => `➕ Compare Item #${n}`,
-        resetBtn: "🔄 Clear All & Start Over",
-        emptyHint: "Enter price and size for at least 2 items above to compare automatically.",
-        winHeadline: (name) => `🏆 Best Value Choice: ${name}`,
-        tieHeadline: "⚖️ Both Have the Exact Same Value",
+        receiptEmpty: (b, f, tot) => `🧾 Buy <strong>${b}</strong>${f > 0 ? ` + <strong>${f}</strong> Free` : ''} = <strong>${tot} pcs</strong>. Enter price above.`,
+        receiptFull: (pay, tot, perPack) => `🧾 Pay <strong>$${pay}</strong> for <strong>${tot} pcs</strong> (@ $${perPack}/pcs)`,
+        addBtn: (n) => `➕ Item #${n}`,
+        resetBtn: "🔄 Reset",
+        emptyHint: "Enter price & size for at least 2 items to compare automatically.",
+        winHeadline: (name) => `🏆 Best Value: ${name}`,
+        tieHeadline: "⚖️ Exact Same Value",
         tieDetail: (unit) => `Both cost the exact same at <strong>$${unit}</strong> per unit.`,
         saveBadge: (amt, pct) => `Save $${amt} (${pct}%)`,
         saveDetail: (winner, runner, unitWin, unitLose) => `<strong>${winner}</strong> gives better value than <strong>${runner}</strong> for an equivalent amount.<br>($${unitWin}/unit vs $${unitLose}/unit)`,
-        budgetWarn: (winName, winPay, lowName, lowPay) => `<strong>💡 Budget Consideration:</strong><br>${winName} has the lowest unit cost, but requires <strong>$${winPay}</strong> at checkout. If keeping spending low today, ${lowName} only costs <strong>$${lowPay}</strong>.`
+        budgetWarn: (winName, winPay, lowName, lowPay) => `<strong>💡 Budget Note:</strong> ${winName} has the lowest unit cost, but requires <strong>$${winPay}</strong> at checkout. For lower upfront spend, ${lowName} is only <strong>$${lowPay}</strong>.`
     }
 };
 
 let items = [
-    { id: 1, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: 0 },
-    { id: 2, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: 0 }
+    { id: 1, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: '' },
+    { id: 2, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: '' }
 ];
 
 function setLang(newLang) {
@@ -114,7 +112,7 @@ window.setPriceMode = function(id, mode) {
     item.priceMode = mode;
     renderItems();
     calculate();
-}
+};
 
 window.togglePromo = function(id, state) {
     const item = items.find(i => i.id === id);
@@ -122,36 +120,35 @@ window.togglePromo = function(id, state) {
     item.hasPromo = state;
     if (state) {
         if (!item.buyQty || item.buyQty < 1) item.buyQty = 2;
-        if (item.freeQty === '' || item.freeQty < 0) item.freeQty = 0;
+        if (item.freeQty === 0 || item.freeQty === '0') item.freeQty = '';
     } else {
         item.priceMode = 'unit';
         item.buyQty = 2;
-        item.freeQty = 0;
+        item.freeQty = '';
     }
     renderItems();
     calculate();
-}
+};
 
 window.applyPreset = function(id, presetKey) {
     const item = items.find(i => i.id === id);
     if (!item) return;
-    if (presetKey === 'b1g1') { item.priceMode = 'unit'; item.buyQty = 1; item.freeQty = 1; }
-    else if (presetKey === 'b2g1') { item.priceMode = 'unit'; item.buyQty = 2; item.freeQty = 1; }
-    else if (presetKey === 'b3') { item.priceMode = 'total'; item.buyQty = 3; item.freeQty = 0; }
-    else if (presetKey === 'b12') { item.priceMode = 'total'; item.buyQty = 12; item.freeQty = 0; }
-    else if (presetKey === 'b24') { item.priceMode = 'total'; item.buyQty = 24; item.freeQty = 0; }
+    item.priceMode = 'unit';
+    if (presetKey === 'b1g1') { item.buyQty = 1; item.freeQty = 1; }
+    else if (presetKey === 'b2g1') { item.buyQty = 2; item.freeQty = 1; }
+    else if (presetKey === 'b3') { item.buyQty = 3; item.freeQty = ''; }
+    else if (presetKey === 'b12') { item.buyQty = 12; item.freeQty = ''; }
     renderItems();
     calculate();
-}
+};
 
 function getActivePreset(item) {
     const b = parseInt(item.buyQty, 10) || 0;
     const f = parseInt(item.freeQty, 10) || 0;
-    if (item.priceMode === 'unit' && b === 1 && f === 1) return 'b1g1';
-    if (item.priceMode === 'unit' && b === 2 && f === 1) return 'b2g1';
-    if (item.priceMode === 'total' && b === 3 && f === 0) return 'b3';
-    if (item.priceMode === 'total' && b === 12 && f === 0) return 'b12';
-    if (item.priceMode === 'total' && b === 24 && f === 0) return 'b24';
+    if (b === 1 && f === 1) return 'b1g1';
+    if (b === 2 && f === 1) return 'b2g1';
+    if (b === 3 && f === 0) return 'b3';
+    if (b === 12 && f === 0) return 'b12';
     return '';
 }
 
@@ -162,7 +159,7 @@ window.copySizeFromFirst = function(id) {
     item.qty = firstQty;
     renderItems();
     calculate();
-}
+};
 
 window.handlePriceInput = function(id, el) {
     const raw = el.value.replace(/\D/g, '');
@@ -171,7 +168,7 @@ window.handlePriceInput = function(id, el) {
     el.value = raw ? formatInt(parseInt(raw, 10)) : '';
     updateMiniReceipt(item);
     calculate();
-}
+};
 
 window.handleQtyInput = function(id, el) {
     let val = el.value.replace(/[^0-9.,]/g, '').replace(',', '.');
@@ -182,17 +179,21 @@ window.handleQtyInput = function(id, el) {
     el.value = val;
     if (id === items[0].id) updateCopyButtonsVisibility();
     calculate();
-}
+};
 
 window.handlePromoCountInput = function(id, field, el) {
-    const raw = el.value.replace(/\D/g, '');
+    let raw = el.value.replace(/\D/g, '');
+    if (raw !== '') {
+        const num = parseInt(raw, 10);
+        raw = num > 0 ? String(num) : '';
+    }
     const item = items.find(i => i.id === id);
     item[field] = raw;
     el.value = raw;
     updatePresetHighlights(item);
     updateMiniReceipt(item);
     calculate();
-}
+};
 
 function updatePresetHighlights(item) {
     const activePreset = getActivePreset(item);
@@ -236,11 +237,11 @@ function updateCopyButtonsVisibility() {
 
 window.addItem = function() {
     if (items.length >= 4) return;
-    items.push({ id: Date.now(), price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: 0 });
+    items.push({ id: Date.now(), price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: '' });
     updateAddButton();
     renderItems();
     calculate();
-}
+};
 
 window.removeItem = function(id) {
     if (items.length <= 2) return;
@@ -248,7 +249,7 @@ window.removeItem = function(id) {
     updateAddButton();
     renderItems();
     calculate();
-}
+};
 
 function updateAddButton() {
     const btn = document.getElementById('btnAdd');
@@ -262,13 +263,13 @@ function updateAddButton() {
 
 window.resetAll = function() {
     items = [
-        { id: 1, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: 0 },
-        { id: 2, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: 0 }
+        { id: 1, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: '' },
+        { id: 2, price: '', priceMode: 'unit', qty: '', hasPromo: false, buyQty: 2, freeQty: '' }
     ];
     updateAddButton();
     renderItems();
     calculate();
-}
+};
 
 function renderItems() {
     const container = document.getElementById('itemsContainer');
@@ -281,6 +282,7 @@ function renderItems() {
         const showCopyBtn = idx > 0 && firstQtyVal > 0 && item.qty !== items[0].qty;
         const pricePlaceholder = item.priceMode === 'total' ? l.pricePhTotal : l.pricePhUnit;
         const formattedPrice = item.price ? formatInt(parseInt(item.price, 10)) : '';
+        const freeDisplayVal = (item.freeQty === 0 || item.freeQty === '0' || !item.freeQty) ? '' : item.freeQty;
 
         return `
             <div class="item-card" id="card-${item.id}">
@@ -289,35 +291,39 @@ function renderItems() {
                         <span class="card-title">${l.itemName(idx + 1)}</span>
                         <span class="win-badge">${l.winBadge}</span>
                     </div>
-                    ${idx >= 2 ? `<button type="button" class="remove-btn" onclick="removeItem(${item.id})" title="${l.removeTitle}">✕</button>` : ''}
-                </div>
-
-                <div class="field">
-                    <div class="label-row">
-                        <label for="price-${item.id}">${l.priceLabel}</label>
+                    <div class="card-header-right">
                         <div class="mode-toggle">
                             <button type="button" class="mode-btn ${item.priceMode === 'unit' ? 'active' : ''}" onclick="setPriceMode(${item.id}, 'unit')">${l.modeUnit}</button>
                             <button type="button" class="mode-btn ${item.priceMode === 'total' ? 'active' : ''}" onclick="setPriceMode(${item.id}, 'total')">${l.modeTotal}</button>
                         </div>
-                    </div>
-                    <div class="input-wrap">
-                        <span class="prefix">${curr}</span>
-                        <input type="text" id="price-${item.id}" class="has-prefix" inputmode="numeric"
-                               placeholder="${pricePlaceholder}" value="${formattedPrice}"
-                               oninput="handlePriceInput(${item.id}, this)">
+                        ${idx >= 2 ? `<button type="button" class="remove-btn" onclick="removeItem(${item.id})" title="${l.removeTitle}">✕</button>` : ''}
                     </div>
                 </div>
 
-                <div class="field">
-                    <div class="label-row">
-                        <label for="qty-${item.id}">${l.qtyLabel}</label>
-                        <button type="button" id="copy-btn-${item.id}" class="copy-size-btn"
-                                style="display: ${showCopyBtn ? 'inline-block' : 'none'};"
-                                onclick="copySizeFromFirst(${item.id})">${l.copySize}</button>
+                <div class="fields-row">
+                    <div class="field">
+                        <div class="label-row">
+                            <label for="price-${item.id}">${l.priceLabel}</label>
+                        </div>
+                        <div class="input-wrap">
+                            <span class="prefix">${curr}</span>
+                            <input type="text" id="price-${item.id}" class="has-prefix" inputmode="numeric"
+                                   placeholder="${pricePlaceholder}" value="${formattedPrice}"
+                                   oninput="handlePriceInput(${item.id}, this)">
+                        </div>
                     </div>
-                    <input type="text" id="qty-${item.id}" inputmode="decimal"
-                           placeholder="${l.qtyPh}" value="${item.qty}"
-                           oninput="handleQtyInput(${item.id}, this)">
+
+                    <div class="field">
+                        <div class="label-row">
+                            <label for="qty-${item.id}">${l.qtyLabel}</label>
+                            <button type="button" id="copy-btn-${item.id}" class="copy-size-btn"
+                                    style="display: ${showCopyBtn ? 'inline-block' : 'none'};"
+                                    onclick="copySizeFromFirst(${item.id})">${l.copySize}</button>
+                        </div>
+                        <input type="text" id="qty-${item.id}" inputmode="decimal"
+                               placeholder="${l.qtyPh}" value="${item.qty}"
+                               oninput="handleQtyInput(${item.id}, this)">
+                    </div>
                 </div>
 
                 ${!item.hasPromo ? `
@@ -335,18 +341,19 @@ function renderItems() {
                             <button type="button" data-preset="b2g1" class="preset-btn ${activePreset === 'b2g1' ? 'active' : ''}" onclick="applyPreset(${item.id}, 'b2g1')">${l.presets.b2g1}</button>
                             <button type="button" data-preset="b3" class="preset-btn ${activePreset === 'b3' ? 'active' : ''}" onclick="applyPreset(${item.id}, 'b3')">${l.presets.b3}</button>
                             <button type="button" data-preset="b12" class="preset-btn ${activePreset === 'b12' ? 'active' : ''}" onclick="applyPreset(${item.id}, 'b12')">${l.presets.b12}</button>
-                            <button type="button" data-preset="b24" class="preset-btn ${activePreset === 'b24' ? 'active' : ''}" onclick="applyPreset(${item.id}, 'b24')">${l.presets.b24}</button>
                         </div>
 
                         <div class="promo-inputs-row">
                             <div>
                                 <label for="buy-${item.id}">${l.buyLabel}</label>
-                                <input type="text" id="buy-${item.id}" inputmode="numeric" value="${item.buyQty}"
+                                <input type="text" id="buy-${item.id}" inputmode="numeric" placeholder="1" value="${item.buyQty}"
+                                       onfocus="setTimeout(() => this.select(), 0)"
                                        oninput="handlePromoCountInput(${item.id}, 'buyQty', this)">
                             </div>
                             <div>
                                 <label for="free-${item.id}">${l.freeLabel}</label>
-                                <input type="text" id="free-${item.id}" inputmode="numeric" value="${item.freeQty}"
+                                <input type="text" id="free-${item.id}" inputmode="numeric" placeholder="0" value="${freeDisplayVal}"
+                                       onfocus="setTimeout(() => this.select(), 0)"
                                        oninput="handlePromoCountInput(${item.id}, 'freeQty', this)">
                             </div>
                         </div>
@@ -423,11 +430,9 @@ function calculate() {
     `;
 }
 
-// Initial Render
 renderItems();
 calculate();
 
-// Service Worker Registration for PWA
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js').catch(() => {});

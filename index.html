@@ -12,10 +12,16 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://baratimur.github.io/hematberapa/">
 
+    <!-- Multilingual Hreflang -->
+    <link rel="alternate" hreflang="id" href="https://baratimur.github.io/hematberapa/">
+    <link rel="alternate" hreflang="en" href="https://baratimur.github.io/hematberapa/en/">
+    <link rel="alternate" hreflang="x-default" href="https://baratimur.github.io/hematberapa/">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Hemat Berapa?">
     <meta property="og:locale" content="id_ID">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:url" content="https://baratimur.github.io/hematberapa/">
     <meta property="og:title" content="Kalkulator Perbandingan Harga &amp; Promo Belanja | Hemat Berapa?">
     <meta property="og:description" content="Bandingkan harga produk beda ukuran kemasan, hitung harga per gram atau ml, dan cari promo belanja paling hemat dengan kalkulator gratis Hemat Berapa.">
@@ -66,7 +72,7 @@
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Any",
           "browserRequirements": "Requires JavaScript",
-          "inLanguage": ["id-ID", "en"],
+          "inLanguage": "id-ID",
           "isAccessibleForFree": true,
           "offers": {
             "@type": "Offer",
@@ -89,10 +95,10 @@
     <header class="header">
         <div class="top-bar">
             <a href="./" class="brand-badge" aria-label="Hemat Berapa Beranda">🛒 Hemat Berapa?</a>
-            <div class="lang-pill" role="group" aria-label="Pilihan Bahasa">
-                <button type="button" class="lang-btn active" id="btnId" onclick="setLang('id')">🇮🇩 ID</button>
-                <button type="button" class="lang-btn" id="btnEn" onclick="setLang('en')">🇬🇧 EN</button>
-            </div>
+            <nav class="lang-pill" aria-label="Pilihan Bahasa">
+                <a href="./" class="lang-btn active" id="btnId" hreflang="id" lang="id" aria-current="page">🇮🇩 ID</a>
+                <a href="en/" class="lang-btn" id="btnEn" hreflang="en" lang="en">🇬🇧 EN</a>
+            </nav>
         </div>
 
         <div class="hero-copy">
@@ -102,9 +108,9 @@
 
         <nav class="quick-nav" aria-label="Navigasi Halaman">
             <a href="#kalkulator">Kalkulator</a>
-            <a href="#cara-menentukan">Cara Hitung</a>
             <a href="#cara-menggunakan">Cara Pakai</a>
             <a href="#contoh">Contoh</a>
+            <a href="#panduan-lanjutan">Panduan</a>
             <a href="#faq">FAQ</a>
         </nav>
     </header>
@@ -215,6 +221,26 @@
                 </ul>
                 <p class="example-verdict"><strong>Hasil:</strong> <strong>Promo Beli 2 Gratis 1 lebih murah Rp4 per ml</strong> (hemat Rp3.000 untuk setiap 3 kotak), selama seluruh isi dapat habis digunakan sebelum kedaluwarsa.</p>
             </article>
+        </section>
+
+        <!-- Panduan Pendukung (Internal Linking) -->
+        <section id="panduan-lanjutan" class="content-section">
+            <h2>Panduan Lengkap Belanja Hemat</h2>
+            <p>Pelajari rumus konversi satuan dan strategi membaca skema promo ritel lebih mendalam melalui panduan berikut:</p>
+            <div class="guide-links">
+                <a href="panduan/harga-per-gram-ml/" class="guide-link-card">
+                    <strong>Panduan Menghitung Harga per Gram, ml, dan Liter</strong>
+                    <span>Rumus konversi kg ke gram, liter ke ml, dan tabel cepat membandingkan ukuran kemasan.</span>
+                </a>
+                <a href="panduan/perbandingan-promo/" class="guide-link-card">
+                    <strong>Perbandingan Promo Beli 2 Gratis 1 vs Diskon Persen</strong>
+                    <span>Cara menghitung persentase diskon asli dari promo bonus barang di supermarket.</span>
+                </a>
+                <a href="panduan/perbandingan-kemasan/" class="guide-link-card">
+                    <strong>Lebih Hemat Kemasan Besar atau Kecil? (Grosir vs Eceran)</strong>
+                    <span>Analisis kapan kemasan jumbo lebih untung dan kapan ukuran sedang atau grosir bertingkat lebih hemat.</span>
+                </a>
+            </div>
         </section>
 
         <!-- FAQ HTML Static -->

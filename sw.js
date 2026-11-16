@@ -1,13 +1,21 @@
-const CACHE_NAME = 'hemat-berapa-p1-v1';
+const CACHE_NAME = 'hemat-berapa-p3-v1';
 const STATIC_ASSETS = [
   './',
   './index.html',
+  './en/',
+  './en/index.html',
   './style.css',
   './script.js',
   './manifest.json',
   './favicon.svg',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './panduan/harga-per-gram-ml/',
+  './panduan/harga-per-gram-ml/index.html',
+  './panduan/perbandingan-promo/',
+  './panduan/perbandingan-promo/index.html',
+  './panduan/perbandingan-kemasan/',
+  './panduan/perbandingan-kemasan/index.html'
 ];
 
 self.addEventListener('install', event => {
@@ -36,10 +44,8 @@ self.addEventListener('fetch', event => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // Jangan intercept sitemap.xml agar crawler selalu mendapat XML terbaru
   if (url.pathname.endsWith('/sitemap.xml')) return;
 
-  // Network-First untuk dokumen HTML agar pembaruan konten & tag SEO langsung tampil
   const isHTML = req.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/');
   if (isHTML) {
     event.respondWith(
@@ -54,7 +60,6 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Cache-First untuk CSS, JS, Manifest, dan Ikon lokal
   event.respondWith(
     caches.match(req).then(cached => {
       if (cached) return cached;

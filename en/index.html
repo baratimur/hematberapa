@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1D5B79">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Unit Price &amp; Grocery Promo Comparison Calculator | Hemat Berapa?</title>
+    <meta name="description" content="Compare products across different package sizes, calculate price per gram or milliliter, and find the best multi-buy grocery deal with the free Hemat Berapa calculator.">
+    <meta name="author" content="Bara Timur">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://baratimur.github.io/hematberapa/en/">
+
+    <!-- Multilingual Hreflang -->
+    <link rel="alternate" hreflang="id" href="https://baratimur.github.io/hematberapa/">
+    <link rel="alternate" hreflang="en" href="https://baratimur.github.io/hematberapa/en/">
+    <link rel="alternate" hreflang="x-default" href="https://baratimur.github.io/hematberapa/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hemat Berapa?">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="id_ID">
+    <meta property="og:url" content="https://baratimur.github.io/hematberapa/en/">
+    <meta property="og:title" content="Unit Price &amp; Grocery Promo Comparison Calculator | Hemat Berapa?">
+    <meta property="og:description" content="Compare products across different package sizes, calculate price per gram or milliliter, and find the best multi-buy grocery deal with the free Hemat Berapa calculator.">
+    <meta property="og:image" content="https://baratimur.github.io/hematberapa/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hemat Berapa Unit Price Comparison Calculator">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unit Price &amp; Grocery Promo Comparison Calculator | Hemat Berapa?">
+    <meta name="twitter:description" content="Compare products across different package sizes, calculate price per gram or milliliter, and find the best multi-buy grocery deal with the free Hemat Berapa calculator.">
+    <meta name="twitter:image" content="https://baratimur.github.io/hematberapa/og-image.png">
+
+    <!-- Icons & PWA -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+    <link rel="apple-touch-icon" href="../icon-192.png">
+    <link rel="manifest" href="../manifest.json">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://baratimur.github.io/hematberapa/#website",
+          "name": "Hemat Berapa?",
+          "url": "https://baratimur.github.io/hematberapa/",
+          "inLanguage": ["id-ID", "en"],
+          "publisher": {
+            "@type": "Person",
+            "name": "Bara Timur",
+            "url": "https://github.com/baratimur"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://baratimur.github.io/hematberapa/en/#webapp",
+          "name": "Hemat Berapa?",
+          "alternateName": "Unit Price & Grocery Promo Comparison Calculator",
+          "url": "https://baratimur.github.io/hematberapa/en/",
+          "description": "Free online shopping calculator to compare products by package size, unit price per gram or milliliter, bundle discounts, and buy-one-get-one supermarket deals.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "inLanguage": "en",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Bara Timur",
+            "url": "https://github.com/baratimur"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <div class="top-bar">
+            <a href="./" class="brand-badge" aria-label="Hemat Berapa English Home">🛒 Hemat Berapa?</a>
+            <nav class="lang-pill" aria-label="Language Switcher">
+                <a href="../" class="lang-btn" id="btnId" hreflang="id" lang="id">🇮🇩 ID</a>
+                <a href="./" class="lang-btn active" id="btnEn" hreflang="en" lang="en" aria-current="page">🇬🇧 EN</a>
+            </nav>
+        </div>
+
+        <div class="hero-copy">
+            <h1 id="txtTitle">Price &amp; Grocery Promo Comparison Calculator</h1>
+            <p id="txtSubtitle">Compare products across different package sizes, calculate price per gram or milliliter, and find the best shopping deal. Free, easy to use, and no sign-up required.</p>
+        </div>
+
+        <nav class="quick-nav" aria-label="Page Sections">
+            <a href="#calculator">Calculator</a>
+            <a href="#how-to-use">How to Use</a>
+            <a href="#examples">Examples</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Main Calculator -->
+        <section id="calculator" class="calculator-section" aria-label="Unit Price Comparison Calculator">
+            <div class="items-list" id="itemsContainer">
+                <noscript>
+                    <div class="noscript-box">
+                        <p><strong>JavaScript is required to run the interactive calculator.</strong></p>
+                        <p>You can still read our guides on calculating price per gram, comparing small vs. bulk packages, and evaluating multi-buy grocery promos below.</p>
+                    </div>
+                </noscript>
+            </div>
+
+            <div class="actions-row">
+                <button type="button" class="add-btn" id="btnAdd" onclick="addItem()">➕ Item #3</button>
+                <button type="button" class="reset-btn" id="btnReset" onclick="resetAll()">🔄 Reset</button>
+            </div>
+
+            <div class="result-panel" id="resultPanel" aria-live="polite">
+                <p class="empty-hint" id="emptyHint">Enter price &amp; size for at least 2 items to compare automatically.</p>
+            </div>
+        </section>
+
+        <!-- How to Determine Better Value -->
+        <section id="how-to-determine" class="content-section">
+            <h2>How Do You Know Which Product Is Better Value?</h2>
+            <p>Supermarket shelf tags and wholesale bundle labels often make it difficult to tell which option actually costs less. Different package sizes and multi-buy promotions mean the lowest sticker price is not always the smartest purchase. With a <strong>unit price comparison calculator</strong>, every product is normalized into one objective metric: <strong>cost per unit</strong>.</p>
+
+            <div class="info-grid">
+                <article class="info-card">
+                    <h3>1. Compare by Weight (Grams &amp; Kilograms)</h3>
+                    <p>Ideal for pantry staples like rice, sugar, ground coffee, flour, or snacks. Enter weights using the same unit (for example, all in grams). If Item 1 is 250 g and Item 2 is 1 kg, enter <code>1000</code> for the 1 kg pack to compare exact <strong>price per gram</strong>.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>2. Compare by Volume (Milliliters &amp; Liters)</h3>
+                    <p>Built for liquids such as milk, cooking oil, liquid detergent, shampoo, and bottled drinks. Enter volume in milliliters (ml) or convert liters (1 liter = 1,000 ml) to uncover the lowest <strong>price per ml</strong> across bottles and refill pouches.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>3. Compare by Unit Count (Pcs / Sheets)</h3>
+                    <p>For facial tissues, diapers, multi-pack instant noodles, or coffee pods, enter the piece or sheet count in the size field. The calculator divides total checkout cost by total units so you see the exact price per sheet or pack.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>4. Small Pack vs. Family Bulk Pack</h3>
+                    <p>Larger packs are often assumed to be cheaper, yet targeted store promotions on medium sizes or refill packs frequently beat bulk pricing per gram. Comparing both prevents overpaying for oversized packaging.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>5. Percentage Discount Calculations</h3>
+                    <p>When an item is marked down by a percentage (such as 20% off), multiply the original price by the remaining percentage (80%) and enter the sale price into the calculator to benchmark it against regular-priced competitors.</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>6. Multi-Buy &amp; Free Bonus Promos</h3>
+                    <p>For wholesale tiers (such as <em>Buy 3</em>) or bonus deals (such as <em>Buy 2 Get 1 Free</em>), open <strong>Add Promo / Multi-Buy</strong>. The calculator combines total upfront payment and total quantity received into an effective unit price.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Step-by-Step Guide -->
+        <section id="how-to-use" class="content-section">
+            <h2>How to Use the Hemat Berapa Calculator</h2>
+            <p>Follow these steps in the store aisle or while comparing online grocery listings:</p>
+            <ol class="steps-list">
+                <li><strong>Select items to compare:</strong> Two items (<strong>Item 1</strong> and <strong>Item 2</strong>) are ready by default. Tap <strong>➕ Item #3</strong> (up to 4 items) to evaluate additional package sizes at once.</li>
+                <li><strong>Choose price mode and enter Price:</strong> Keep the toggle on <strong>Unit</strong> when the shelf price applies to a single pack, or switch to <strong>Total</strong> when entering a combined bundle price.</li>
+                <li><strong>Enter net weight, volume, or count:</strong> Type the package size in <strong>Size (ml/gr)</strong> using consistent units. If the second item has the exact same package size as Item 1, tap the <strong>📋 = Item 1</strong> shortcut.</li>
+                <li><strong>Configure multi-buy or bonus promos (optional):</strong> Tap <strong>🏷️ Add Promo / Multi-Buy</strong>, then choose a quick preset (<em>Buy 1 Get 1</em>, <em>Buy 2 Get 1</em>, <em>Buy 3</em>, <em>Buy 12</em>) or enter custom numbers in <strong>Buy (Pcs)</strong> and <strong>Free (Pcs)</strong>.</li>
+                <li><strong>Review unit prices automatically:</strong> Once at least two items are filled in, the lowest unit-cost option is highlighted in green with a <strong>🏆 BEST</strong> badge and savings breakdown.</li>
+                <li><strong>Check upfront budget impact:</strong> Review the savings percentage and the <strong>Budget Note</strong> to verify whether a multi-buy deal fits your immediate checkout budget.</li>
+            </ol>
+        </section>
+
+        <!-- Concrete Examples -->
+        <section id="examples" class="content-section">
+            <h2>Practical Calculation Examples</h2>
+            <p>Three everyday grocery scenarios showing how unit price math works:</p>
+
+            <article class="example-card">
+                <h3>Example 1: Small Pack vs. Bulk Pack (Weight in Grams)</h3>
+                <ul>
+                    <li><strong>Product A (Small Pack):</strong> $15 for 250 g &rarr; <code>$15 &divide; 250 = $0.06 per gram</code> ($6 per 100 g).</li>
+                    <li><strong>Product B (Bulk Pack):</strong> $25 for 500 g &rarr; <code>$25 &divide; 500 = $0.05 per gram</code> ($5 per 100 g).</li>
+                </ul>
+                <p class="example-verdict"><strong>Verdict:</strong> <strong>Product B is better value.</strong> Buying two 250 g packs of Product A costs $30 for 500 g. Choosing Product B saves <strong>$5 (17%)</strong>.</p>
+            </article>
+
+            <article class="example-card">
+                <h3>Example 2: 20% Off Promo vs. Regular Price</h3>
+                <ul>
+                    <li><strong>Product A (20% Off):</strong> Regular price $40 for 400 ml. A 20% discount deducts <code>20% &times; $40 = $8</code>, bringing the price to <strong>$32</strong> (<code>$32 &divide; 400 = $0.08 per ml</code>).</li>
+                    <li><strong>Product B (No Discount):</strong> Regular price <strong>$35</strong> for the same 400 ml size (<code>$35 &divide; 400 = $0.0875 per ml</code>).</li>
+                </ul>
+                <p class="example-verdict"><strong>Verdict:</strong> Enter <code>32</code> for Item 1 and <code>35</code> for Item 2. <strong>Product A saves $3 (9%)</strong> over Product B.</p>
+            </article>
+
+            <article class="example-card">
+                <h3>Example 3: Buy 2 Get 1 Free vs. 25% Direct Discount</h3>
+                <p>Assume a 250 ml carton is priced at $12 each:</p>
+                <ul>
+                    <li><strong>Buy 2 Get 1 Free:</strong> You pay for 2 cartons (<code>2 &times; $12 = $24</code>) and take home 3 cartons (750 ml). The effective cost drops to <strong>$8 per carton</strong> or <strong>$0.032 per ml</strong> (an effective <strong>33.33%</strong> discount).</li>
+                    <li><strong>25% Direct Discount:</strong> Each carton costs <code>$12 &minus; 25% = $9</code> or <strong>$0.036 per ml</strong> ($27 total for 3 cartons).</li>
+                </ul>
+                <p class="example-verdict"><strong>Verdict:</strong> <strong>Buy 2 Get 1 Free saves $3 across 3 cartons</strong> ($0.004 less per ml), as long as all 3 cartons will be consumed before expiration.</p>
+            </article>
+        </section>
+
+        <!-- Static HTML FAQ -->
+        <section id="faq" class="content-section">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <details class="faq-item" open>
+                <summary>What is unit price?</summary>
+                <div class="faq-answer">
+                    <p>Unit price is the cost you pay per single standard measurement of a product—such as cost per 1 gram, per 1 milliliter, or per 1 sheet. It is calculated by dividing total checkout price by total weight, volume, or item count.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I calculate price per gram or per milliliter?</summary>
+                <div class="faq-answer">
+                    <p>Use the formula: <strong>Product Price &divide; Net Weight or Volume</strong>. For example, a 2,000 ml (2-liter) bottle priced at $36 costs <code>$36 &divide; 2,000 = $0.018 per ml</code> ($18 per liter). Always use the same unit across all compared items.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Is a larger package always cheaper per unit?</summary>
+                <div class="faq-answer">
+                    <p>No. While bulk sizes often lower packaging costs, retailers frequently discount high-turnover medium sizes or refill pouches, making their price per gram or ml cheaper than the largest bottle on the shelf.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I compare a Buy 2 Get 1 Free deal?</summary>
+                <div class="faq-answer">
+                    <p>Enter the single-item price in <strong>Unit</strong> mode along with its package size, tap <strong>Add Promo / Multi-Buy</strong>, and select <strong>Buy 2 Get 1</strong>. The calculator automatically divides the cost of 2 items across all 3 items received (an effective 33.33% discount).</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Is Hemat Berapa free to use and does it store my data?</summary>
+                <div class="faq-answer">
+                    <p>Hemat Berapa is 100% free with no ads, accounts, or backend database. All numbers you enter are processed locally in your browser memory only and are cleared immediately when you refresh the page or tap Reset.</p>
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p><strong>Hemat Berapa?</strong> — Price &amp; Grocery Promo Comparison Calculator</p>
+        <p>Free &amp; Open Source on <a href="https://github.com/baratimur/hematberapa" target="_blank" rel="noopener">GitHub (baratimur/hematberapa)</a> • <a href="../" hreflang="id">Versi Bahasa Indonesia</a></p>
+    </footer>
+</div>
+
+<script src="../script.js" defer></script>
+</body>
+</html>

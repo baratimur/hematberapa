@@ -1,4 +1,4 @@
-let lang = 'id';
+let lang = document.documentElement.lang === 'en' ? 'en' : 'id';
 
 const dict = {
     id: {
@@ -437,8 +437,11 @@ function calculate() {
 renderItems();
 calculate();
 
+const currentScriptSrc = document.currentScript ? document.currentScript.src : '';
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
+        const swUrl = currentScriptSrc ? new URL('sw.js', currentScriptSrc).href : './sw.js';
+        navigator.serviceWorker.register(swUrl).catch(() => {});
     });
 }
